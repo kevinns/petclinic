@@ -25,10 +25,13 @@ jobs:
         run: |
           git pull origin main
           ./gradlew build -x test
-          java -jar ./build/libs/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar
+        #  java -jar ./build/libs/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar
       - name: Test
-        run: |
-          run: java -jar ./build/libs/spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar stop
-          ./gradlew test -i
+        run: ./gradlew test -i
       #- name: Validate
-      #- name: Deploy
+      - name: Deploy
+        uses: akhileshns/heroku-deploy@master
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "PetClinicApplication"
+          heroku_email: "kevinke@live.com.ar"
