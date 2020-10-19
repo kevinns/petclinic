@@ -33,5 +33,5 @@ jobs:
         uses: akhileshns/heroku-deploy@master
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "PetClinicApplication"
+          heroku_app_name: "petclinictesting"
           heroku_email: "kevinke@live.com.ar"
