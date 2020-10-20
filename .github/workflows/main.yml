@@ -29,9 +29,9 @@ jobs:
       - name: Test
         run: ./gradlew test -i
       #- name: Validate
-    #  - name: Deploy
-    #   uses: akhileshns/heroku-deploy@master
-     #  with:
-      #    heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #    heroku_app_name: "petclinictesting"
-       #   heroku_email: "kevinke@live.com.ar"
+      - name: Deploy
+       uses: akhileshns/heroku-deploy@master
+       with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "petclinictesting"
+          heroku_email: "kevinke@live.com.ar"
