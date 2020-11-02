@@ -135,13 +135,6 @@
 
   <build>
     <plugins>
-	<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-checkstyle-plugin</artifactId>
-    <configuration>
-        <skip>true</skip>
-    </configuration>
-</plugin>
       <plugin>
         <groupId>io.spring.javaformat</groupId>
         <artifactId>spring-javaformat-maven-plugin</artifactId>
@@ -171,23 +164,6 @@
             <version>${nohttp-checkstyle.version}</version>
           </dependency>
         </dependencies>
-        <executions>
-          <execution>
-            <id>nohttp-checkstyle-validation</id>
-            <phase>validate</phase>
-            <configuration>
-              <configLocation>src/checkstyle/nohttp-checkstyle.xml</configLocation>
-              <suppressionsLocation>src/checkstyle/nohttp-checkstyle-suppressions.xml</suppressionsLocation>
-              <encoding>UTF-8</encoding>
-              <sourceDirectories>${basedir}</sourceDirectories>
-              <includes>**/*</includes>
-              <excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class</excludes>
-            </configuration>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -311,15 +287,15 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-	<repository>
-		<id>central</id>
-		<name>Central Repository</name>
-		<url>https://repo.maven.apache.org/maven2</url>
-		<layout>default</layout>
-		<snapshots>
-		<enabled>false</enabled>
-		</snapshots>
-	</repository>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo1.maven.org/maven2/</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
   </repositories>
 
   <pluginRepositories>
