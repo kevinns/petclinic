@@ -33,7 +33,7 @@ jobs:
         uses: kitabisa/sonarqube-action@main
         with:
         host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }
+        login: ${{ secrets.SONARQUBE_TOKEN }}
         run: |
           docker-compose up -d          
           ./gradlew -i test jacocoTestReport
