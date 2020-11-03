@@ -30,12 +30,20 @@ jobs:
       - name: Validate
         run: ./gradlew check
       - name: Analyze sonarqube
-        uses: kitabisa/sonarqube-action@main
-        with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
+        env:          
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker-compose up -d          
+          docker-compose up -d
+          sonar-scanner
+          -Dsonar.host.url=${{ secrets.SONAR_URL }}
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+          -Dsonar.pullrequest.key=${{ github.event.number }}
+          -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
+          -Dsonar.pullrequest.base=${{ github.BASE_REF }}
+          -Dsonar.pullrequest.github.repository=${{ github.repository }}
+          -Dsonar.scm.provider=git
+          -Dsonar.java.binaries=/tmp
           ./gradlew -i test jacocoTestReport
           docker-compose down
       - name: Deploy
