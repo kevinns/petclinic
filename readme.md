@@ -79,7 +79,7 @@ The following items should be installed in your system:
 
 4) Navigate to Petclinic
 
-    Visit [http://localhost:8080](http://localhost:8080) in your browser.
+    Visit [http://localhost:8080](http://localhost:8080) in your browser. 
 
 
 ## Looking for something in particular?
